@@ -1,0 +1,20 @@
+<div>
+  <ul class="collection">
+    @for (note of notes; track $index) {
+      <li class="collection-item">
+        <app-note [text] = note.text></app-note>
+        <button class="teal waves-effect waves-light btn-small z-depth-2" (click)="edit($index)" type="button">Edit</button>
+        <button class="red waves-effect waves-light btn-small z-depth-2" (click)="remove($index)" type="button">Remove</button>
+        <!--<button class="teal waves-effect waves-light btn-small z-depth-2" (click)="save($index,!editable)">Save</button>-->
+      </li>
+    } @empty {
+      <p>Nothing to See Here</p>
+    }
+  </ul>
+</div>
+<div>
+  <textarea class="materialize-textarea" id = "textarea" [(ngModel)]="text" title="textarea"></textarea>
+</div>
+<button class="teal waves-effect waves-light btn-small z-depth-2" (click)="add()" type="button">Add</button>
+<button class="teal waves-effect waves-light btn-small z-depth-2" (click)="save()" type="button">Save</button>
+
